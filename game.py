@@ -29,6 +29,11 @@ class Game:
             self.history = [(old_grid, old_score)]
             self.board.add_random_tile()
 
+            if self.board.score > old_score:
+                print("Move made. Merge occurred.")
+            else:
+                print("Move made.")
+
         return changed
 
     def run(self):
