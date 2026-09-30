@@ -16,8 +16,7 @@ class Board:
             r, c = random.choice(empty)
             self.grid[r][c] = 4 if random.random() < 0.1 else 2
 
-    @staticmethod
-    def slide_line(line):
+    def slide_line(self, line):
         values = [x for x in line if x]
         result = []
         merged = False
@@ -25,6 +24,7 @@ class Board:
         for value in values:
             if result and result[-1] == value and not merged:
                 result[-1] *= 2
+                self.score += result[-1]
                 merged = True
             else:
                 result.append(value)
